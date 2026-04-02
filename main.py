@@ -17,8 +17,8 @@ price = (a - c) / (b + d)
 quantity = a - b * price
 
 print("Market Equilibrium values --")
-print(f"Equilibrium Price: R{price}")
-print(f"Equilibrium Quantity: R{quantity}")
+print(f"Equilibrium Price: R{price:.2f}")
+print(f"Equilibrium Quantity: R{quantity:.2f}")
 
 
 # Work out shortages and surpluses
@@ -33,8 +33,8 @@ if qd == qs:
     print("The market is in equilibiruim.")
 elif qd > qs:
     shortage = qd -qs
-    print(f"There is a shortage of {shortage} units.")
+    print(f"There is a shortage of {shortage:.2f} units.")
 else:
     surplus = qs - qd
-    print(f"There is a surplus of {surplus} units.")
+    print(f"There is a surplus of {surplus:.2f} units.")
 
