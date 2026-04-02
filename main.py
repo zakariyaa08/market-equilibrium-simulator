@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 # Qd formula = a - bP
 # Qs formula = c + dP
 
@@ -50,6 +52,44 @@ def check_market_condition(qd, qs):
         surplus = qs - qd
         print(f"There is a surplus of {surplus:.2f} units.")
 
+def plot_market(a, b, c, d, price, quantity):
+    # Create empty lists which will be appended 
+    prices = []
+    demand = []
+    supply = []
+
+    # Generate price values. Double it and add some padding
+    for i in range(0, int(price*2)+ 10):
+        prices.append(i)
+
+        # Calculate demand and supply at this price
+        demand_quantity = a - b * i
+        supply_quantity = c + d * i
+
+        demand.append(demand_quantity)
+        supply.append(supply_quantity)
+
+            # Plot demand curve
+    plt.plot(demand, prices, label="Demand")
+
+    # Plot supply curve
+    plt.plot(supply, prices, label="Supply")
+
+    # Plot equilibrium point
+    plt.scatter(quantity, price, color="red", label="Equilibrium")
+
+    # Labels and title
+    plt.xlabel("Quantity")
+    plt.ylabel("Price")
+    plt.title("Market Equilibrium")
+
+    # Legend and grid
+    plt.legend()
+    plt.grid(True)
+
+    # Show graph
+    plt.show()
+
 
 def main():
     # Get demand and supply inputs from user
@@ -64,6 +104,7 @@ def main():
     test_price = float(input("\nEnter a price to test: "))
     qd, qs = test_marketprice(a, b, c, d, test_price)
     check_market_condition(qd, qs)
+    plot_market(a, b, c, d, price, quantity)
 
 
 main()
