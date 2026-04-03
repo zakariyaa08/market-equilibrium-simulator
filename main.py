@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+from price_controls import apply_ceiling, apply_floor, get_price_control
 
 # Qd formula = a - bP
 # Qs formula = c + dP
@@ -105,6 +106,15 @@ def main():
     qd, qs = test_marketprice(a, b, c, d, test_price)
     check_market_condition(qd, qs)
     plot_market(a, b, c, d, price, quantity)
+
+    # Price controls
+    choice, control_price = get_price_control()
+    if choice == "1":
+        apply_ceiling(a, b, c, d, price, control_price)
+    elif choice == "2":
+        apply_floor(a, b, c, d, price, control_price)
+    else:
+        print("Invalid choice.")
 
 
 main()

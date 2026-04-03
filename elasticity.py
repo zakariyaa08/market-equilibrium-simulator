@@ -1,0 +1,22 @@
+def calculate_ped(p1, q1, p2,q2):
+
+    # PED formula: (Change in Q over the Midpoint of Q) divided by (Change in P over Midpoint of P)
+    midpoint_q = (q1 + q2) / 2
+    midpoint_p = (p1 + p2) / 2
+    change_q = q2 - q1
+    change_p = p2 - p1
+
+    ped = (change_q / midpoint_q) / (change_p / midpoint_p)
+
+    return ped
+
+
+def interpret_ped(ped):
+    
+    if abs(ped) > 1:
+        print("PED is elastic")
+    elif abs(ped) == 1:
+        print("PED is unit elastic")
+    else:
+        print("PED is inelastic")
+
