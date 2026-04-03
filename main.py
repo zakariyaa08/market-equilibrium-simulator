@@ -70,18 +70,18 @@ def plot_market(a, b, c, d, price, quantity):
         supply.append(supply_quantity)
 
             # Plot demand curve
-    plt.plot(demand, prices, label="Demand")
+    plt.plot(demand, prices, label="Demand", color="#1f77b4",linewidth=2)
 
     # Plot supply curve
-    plt.plot(supply, prices, label="Supply")
+    plt.plot(supply, prices, label="Supply", color="green", linewidth=2)
 
     # Plot equilibrium point
-    plt.scatter(quantity, price, color="red", label="Equilibrium")
+    plt.scatter(quantity, price, color="red", label="Equilibrium", s=100, edgecolor="black")
 
     # Labels and title
-    plt.xlabel("Quantity")
-    plt.ylabel("Price")
-    plt.title("Market Equilibrium")
+    plt.xlabel("Quantity", labelpad=10)
+    plt.ylabel("Price", labelpad=10)
+    plt.title("Market Equilibrium", pad=25)
 
     # Legend and grid
     plt.legend()
