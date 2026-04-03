@@ -20,3 +20,12 @@ def interpret_ped(ped):
     else:
         print("PED is inelastic")
 
+def get_elasticity_inputs():
+    print("Add the values which you would like to check")
+
+    p1 = float(input("Enter a value for p1: \n"))
+    q1 = float(input("Enter a value for q1: \n"))
+    p2 = float(input("Enter a value for p2: \n"))
+    q2 = float(input("Enter a value for q2: \n"))
+
+    return p1, q1, p2, q2

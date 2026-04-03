@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 from price_controls import apply_ceiling, apply_floor, get_price_control
+from elasticity import get_elasticity_inputs, calculate_ped, interpret_ped
 
 # Qd formula = a - bP
 # Qs formula = c + dP
@@ -103,8 +104,9 @@ def main():
         print("1. Test a price")
         print("2. Apply a price control")
         print("3. Show graph")
-        print("4. Quit")
-        choice = input("Choose 1-4: \n")
+        print("4. Elasticity Calculator")
+        print("5. Quit")
+        choice = input("Choose 1-5: \n")
 
         if choice == "1":
             test_price = float(input("Enter a price to test: \n"))
@@ -120,7 +122,11 @@ def main():
                 print("Invalid choice.")
         elif choice == "3":
             plot_market(a, b, c, d, price, quantity)
-        elif choice == "4":
+        elif choice =="4":
+            p1, q1, p2, q2 = get_elasticity_inputs()
+            ped = calculate_ped(p1, q1, p2, q2)
+            interpret_ped(ped)
+        elif choice == "5":
             print("Goodbye.")
             break
         else:
