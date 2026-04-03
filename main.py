@@ -93,28 +93,37 @@ def plot_market(a, b, c, d, price, quantity):
 
 
 def main():
-    # Get demand and supply inputs from user
     a, b = demand_curve_inputs()
     c, d = supply_curve_inputs()
-
-    # Calculate and display equilibrium
     price, quantity = calculate_equilibrium(a, b, c, d)
     display_equilibrium(price, quantity)
 
-    # Ask for a test price and check market condition
-    test_price = float(input("\nEnter a price to test: \n"))
-    qd, qs = test_marketprice(a, b, c, d, test_price)
-    check_market_condition(qd, qs)
-    plot_market(a, b, c, d, price, quantity)
+    while True:
+        print("\n--- What would you like to do? ---")
+        print("1. Test a price")
+        print("2. Apply a price control")
+        print("3. Show graph")
+        print("4. Quit")
+        choice = input("Choose 1-4: \n")
 
-    # Price controls
-    choice, control_price = get_price_control()
-    if choice == "1":
-        apply_ceiling(a, b, c, d, price, control_price)
-    elif choice == "2":
-        apply_floor(a, b, c, d, price, control_price)
-    else:
-        print("Invalid choice.")
-
+        if choice == "1":
+            test_price = float(input("Enter a price to test: \n"))
+            qd, qs = test_marketprice(a, b, c, d, test_price)
+            check_market_condition(qd, qs)
+        elif choice == "2":
+            control_choice, control_price = get_price_control()
+            if control_choice == "1":
+                apply_ceiling(a, b, c, d, price, control_price)
+            elif control_choice == "2":
+                apply_floor(a, b, c, d, price, control_price)
+            else:
+                print("Invalid choice.")
+        elif choice == "3":
+            plot_market(a, b, c, d, price, quantity)
+        elif choice == "4":
+            print("Goodbye.")
+            break
+        else:
+            print("Invalid choice, try again.")
 
 main()
