@@ -6,16 +6,16 @@ import matplotlib.pyplot as plt
 def demand_curve_inputs():
     # Ask user for demand curve values and return them
     print("Enter the values for the demand curve using the formula Qd = a - bP")
-    a = float(input("Enter demand constant a: "))
-    b = float(input("Enter demand coefficient b: "))
+    a = float(input("Enter demand constant a: \n"))
+    b = float(input("Enter demand coefficient b: \n"))
     return a, b
 
 
 def supply_curve_inputs():
     # Ask user for supply curve values and return them
     print("Enter the values for the supply curve using the formula Qs = c + dP")
-    c = float(input("Enter supply constant c: "))
-    d = float(input("Enter supply coefficient d: "))
+    c = float(input("Enter supply constant c: \n"))
+    d = float(input("Enter supply coefficient d: \n"))
     return c, d
 
 
@@ -29,8 +29,8 @@ def calculate_equilibrium(a, b, c, d):
 
 def display_equilibrium(price, quantity):
     # Print the equilibrium results neatly
-    print("\nMarket Equilibrium values --")
-    print(f"Equilibrium Price:    R{price:.2f}")
+    print("\nMarket Equilibrium values: ")
+    print(f"Equilibrium Price: R{price:.2f}")
     print(f"Equilibrium Quantity: {quantity:.2f} units")
 
 
@@ -101,7 +101,7 @@ def main():
     display_equilibrium(price, quantity)
 
     # Ask for a test price and check market condition
-    test_price = float(input("\nEnter a price to test: "))
+    test_price = float(input("\nEnter a price to test: \n"))
     qd, qs = test_marketprice(a, b, c, d, test_price)
     check_market_condition(qd, qs)
     plot_market(a, b, c, d, price, quantity)
