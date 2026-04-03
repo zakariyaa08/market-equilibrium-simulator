@@ -9,7 +9,7 @@ first-year BBusSci student at UCT to combine coursework from Economics
 - Detects shortages and surpluses at any given price
 - Simulates price ceilings and price floors
 - Calculates Price Elasticity of Demand using the arc/midpoint method
-- Interprets PED and gives revenue advice
+- Interprets PED
 - Visualises supply and demand curves using matplotlib
 
 ## Screenshot
