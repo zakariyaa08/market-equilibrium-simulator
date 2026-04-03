@@ -85,6 +85,10 @@ def plot_market(a, b, c, d, price, quantity):
     plt.ylabel("Price", labelpad=10)
     plt.title("Market Equilibrium", pad=25)
 
+    # Limits
+    plt.xlim(left=0)
+    plt.ylim(bottom=0)
+
     # Legend and grid
     plt.legend()
     plt.grid(True)
