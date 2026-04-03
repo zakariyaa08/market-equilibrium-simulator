@@ -94,19 +94,35 @@ def plot_market(a, b, c, d, price, quantity):
 
 
 def main():
+
+    print("Welcome to the Market Equilibrium Simulator and Elasticity calcultor!")
+    print("What would you like to do today?")
+    print("1. Market Analysis")
+    print("2. Elasticity Calculator")
+    choice = input("Choose 1 or 2: \n")
+
+    if choice == "1":
+        market_menu()
+    
+    elif choice == "2":
+        elasticity_menu()
+    else:
+        print("Invalid choice")
+
+def market_menu():
     a, b = demand_curve_inputs()
-    c, d = supply_curve_inputs()
+    c ,d = supply_curve_inputs()
     price, quantity = calculate_equilibrium(a, b, c, d)
     display_equilibrium(price, quantity)
 
     while True:
-        print("\n--- What would you like to do? ---")
+
+        print("\n--- Market Menu ---")
         print("1. Test a price")
         print("2. Apply a price control")
         print("3. Show graph")
-        print("4. Elasticity Calculator")
-        print("5. Quit")
-        choice = input("Choose 1-5: \n")
+        print("4. Quit")
+        choice = input("Choose 1-4: \n")
 
         if choice == "1":
             test_price = float(input("Enter a price to test: \n"))
@@ -118,18 +134,31 @@ def main():
                 apply_ceiling(a, b, c, d, price, control_price)
             elif control_choice == "2":
                 apply_floor(a, b, c, d, price, control_price)
-            else:
-                print("Invalid choice.")
         elif choice == "3":
             plot_market(a, b, c, d, price, quantity)
-        elif choice =="4":
-            p1, q1, p2, q2 = get_elasticity_inputs()
-            ped = calculate_ped(p1, q1, p2, q2)
-            interpret_ped(ped)
-        elif choice == "5":
+        elif choice == "4":
             print("Goodbye.")
             break
         else:
-            print("Invalid choice, try again.")
+            print("Invalid choice.")
+
+
+def elasticity_menu():
+    while True:
+        print("\n--- Elasticity Calculator ---")
+        print("1. Calculate PED")
+        print("2. Quit")
+        choice = input("Choose 1-2: \n")
+
+        if choice == "1":
+            p1, q1, p2, q2 = get_elasticity_inputs()
+            ped = calculate_ped(p1, q1, p2, q2)
+            interpret_ped(ped)
+        elif choice == "2":
+            print("Goodbye.")
+            break
+        else:
+            print("Invalid choice.")
 
 main()
+

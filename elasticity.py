@@ -14,11 +14,11 @@ def calculate_ped(p1, q1, p2,q2):
 def interpret_ped(ped):
     
     if abs(ped) > 1:
-        print("PED is elastic")
+        print(f"The PED is {abs(ped):.2f} therefore it is elastic")
     elif abs(ped) == 1:
-        print("PED is unit elastic")
+        print("PED is 1 therefore it is unit elastic")
     else:
-        print("PED is inelastic")
+        print(f"PED is {abs(ped):.2f} therefore it is inelastic")
 
 def get_elasticity_inputs():
     print("Add the values which you would like to check")
